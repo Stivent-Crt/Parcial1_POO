@@ -4,7 +4,7 @@ Andres Stivent Cortes Gomez
 
 Jesús Alberto Arias Lizcano
 
-<<<<<<< HEAD
+
 Simulador de Préstamos ClickBank
 
 Este programa en C++ simula un sistema de aprobación de créditos, permitiendo evaluar si un cliente puede obtener un préstamo según su perfil, el monto solicitado, el plazo y la existencia de un codeudor.
@@ -45,5 +45,4 @@ Ingrese el plazo en meses: 36
 El préstamo solicitado por un monto de $6000000 a un plazo de 36 meses es APROBADO con una tasa del 0.07 Total a pagar: $21120000.00
 ----------------------------------------
 =======
-La solucion consiste en un sistema automatizado de evaluación de creditos diseñado para hacer las solicitudes financieras mas eficientes, mediante calculos entre el interés, monto total y el tipo de cliente, generando una respuesta inmediata de aprobado o rechazado indicando un motivo
->>>>>>> 1bf9431206be6c720bfcfe79e42d78b465f4a183
+
