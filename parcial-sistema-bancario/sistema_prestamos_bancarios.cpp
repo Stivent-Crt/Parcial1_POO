@@ -105,7 +105,7 @@ int main(){
         
         //Formula para calcular el interes y sumarla al total
         interes = monto * tasa * plazo;
-	interes = interes - descuento_ep;
+	interes = interes - (interes * descuento_ep);
         total = monto + interes;
 
         std::cout << std::fixed << std::setprecision(0);
