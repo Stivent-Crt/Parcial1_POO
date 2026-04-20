@@ -11,7 +11,7 @@ int main(){
     std::string motivo_rechazo;
 
     //Variables por cliente
-    float tasa;
+    float tasa, por_tasa, descuento_ep = 0;;
     double limite_sin = 0, limite_con = 0, limite_real = 0;
     int plazo_max;
 
@@ -36,20 +36,25 @@ int main(){
     switch(tipo_cliente){
         case 1:
             tasa = 0.06;
+	    por_tasa = 6;
             limite_sin = 2000000;
             limite_con = 5000000;
             plazo_max = (monto <= 2000000) ? 12 : 24;
         break;
 
         case 2:
-            tasa = 0.07;
+        descuento_ep = (codeudor) ? 0.10: 0;
+            tasa = (plazo > 36) ? 0.07+0.015: 0.07;
+	    por_tasa = (plazo > 36) ? 7+1.5: 7;
             limite_sin = 5000000;
             limite_con = 10000000;
             plazo_max = (monto <= 5000000) ? 24 : 48;
         break;
 
         case 3:
-            tasa = 0.04;
+		tasa = 0.04;
+		por_tasa = 4;
+            descuento_ep = (codeudor) ? 0.10: 0;
             limite_sin = 3000000;
             limite_con = 7000000;
             plazo_max = (monto <= 3000000) ? 24 : 36;
@@ -57,6 +62,7 @@ int main(){
 
         case 4:
             tasa = 0.08;
+	    por_tasa = 8;
             limite_sin = 0;
             limite_con = 2000000;
             plazo_max = 12;
@@ -99,10 +105,11 @@ int main(){
         
         //Formula para calcular el interes y sumarla al total
         interes = monto * tasa * plazo;
+	interes = interes - descuento_ep;
         total = monto + interes;
 
-        std::cout << std::fixed << std::setprecision(2);
-        std::cout << "El préstamo solicitado por un monto de $" << monto << " a un plazo de " << plazo << " meses es APROBADO con una tasa del " << tasa << " Total a pagar: $" << total << std::endl;
+        std::cout << std::fixed << std::setprecision(0);
+        std::cout << "El préstamo solicitado por un monto de $" << monto << " a un plazo de " << plazo << " meses es APROBADO con una tasa del " << por_tasa << "% \nTotal a pagar: $" << total << std::endl;
     }else {
         std::cout << "RECHAZADO ";
         std::cout << motivo_rechazo << std::endl;
